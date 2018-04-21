@@ -75,6 +75,24 @@ public class Break{
         let timeEnd = Int32(timeEndInterval)
         return timeEnd
     }
+   
+    func getTimeLength() -> Int32{
+        if self._timeEnd == nil{
+            return 0
+        }
+        let timeStartDate = self._timeStart!.timeIntervalSince1970.self
+        let startTimeInteger  = Int32(timeStartDate)
+        
+        let timeEndDate = self._timeEnd!.timeIntervalSince1970.self
+        let endTimeInteger = Int32(timeEndDate)
+        return endTimeInteger - startTimeInteger
+    }
     
-    //formatting function 
+    func getFormattedLength() -> NSString {
+            let ti = NSInteger(getTimeLength())
+            let seconds = ti % 60
+            let minutes = (ti / 60) % 60
+            let hours = (ti / 3600)
+            return NSString(format: "%0.2d:%0.2d:%0.2d",hours,minutes,seconds)
+    }
 }
