@@ -15,6 +15,10 @@
 		184024492049C37400B34BEF /* Punch_IOTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184024482049C37400B34BEF /* Punch_IOTests.swift */; };
 		184024542049C37400B34BEF /* Punch_IOUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184024532049C37400B34BEF /* Punch_IOUITests.swift */; };
 		442B2EC0207C025D0012D511 /* PunchIODatabaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442B2EBF207C025D0012D511 /* PunchIODatabaseHelper.swift */; };
+		44AF4A20208E715D0081B8C6 /* GroupSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AF4A1F208E715D0081B8C6 /* GroupSelectionView.swift */; };
+		44AF4A22208E792B0081B8C6 /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AF4A21208E792B0081B8C6 /* GroupCell.swift */; };
+		44AF4A27208E94020081B8C6 /* HourViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AF4A26208E94020081B8C6 /* HourViewController.swift */; };
+		44AF4A29208FC6860081B8C6 /* GroupMemberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AF4A28208FC6860081B8C6 /* GroupMemberCell.swift */; };
 		44FA322F2082EEB0005D4BED /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FA322E2082EEB0005D4BED /* Employee.swift */; };
 		44FA323120845125005D4BED /* Break.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FA323020845125005D4BED /* Break.swift */; };
 		44FA3233208451AB005D4BED /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FA3232208451AB005D4BED /* Manager.swift */; };
@@ -61,6 +65,10 @@
 		184024532049C37400B34BEF /* Punch_IOUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Punch_IOUITests.swift; sourceTree = "<group>"; };
 		184024552049C37400B34BEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		442B2EBF207C025D0012D511 /* PunchIODatabaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PunchIODatabaseHelper.swift; sourceTree = "<group>"; };
+		44AF4A1F208E715D0081B8C6 /* GroupSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupSelectionView.swift; sourceTree = "<group>"; };
+		44AF4A21208E792B0081B8C6 /* GroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
+		44AF4A26208E94020081B8C6 /* HourViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourViewController.swift; sourceTree = "<group>"; };
+		44AF4A28208FC6860081B8C6 /* GroupMemberCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupMemberCell.swift; sourceTree = "<group>"; };
 		44FA322E2082EEB0005D4BED /* Employee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
 		44FA323020845125005D4BED /* Break.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Break.swift; sourceTree = "<group>"; };
 		44FA3232208451AB005D4BED /* Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
@@ -123,6 +131,8 @@
 		184024322049C37400B34BEF /* Punch-IO */ = {
 			isa = PBXGroup;
 			children = (
+				44AF4A25208E93860081B8C6 /* Controller */,
+				44AF4A1C208E488E0081B8C6 /* view */,
 				44FA322C208151E0005D4BED /* Support */,
 				44FA322820814915005D4BED /* Database */,
 				184024332049C37400B34BEF /* AppDelegate.swift */,
@@ -131,6 +141,7 @@
 				1840243A2049C37400B34BEF /* Assets.xcassets */,
 				1840243C2049C37400B34BEF /* LaunchScreen.storyboard */,
 				1840243F2049C37400B34BEF /* Info.plist */,
+				44AF4A1F208E715D0081B8C6 /* GroupSelectionView.swift */,
 			);
 			path = "Punch-IO";
 			sourceTree = "<group>";
@@ -151,6 +162,23 @@
 				184024552049C37400B34BEF /* Info.plist */,
 			);
 			path = "Punch-IOUITests";
+			sourceTree = "<group>";
+		};
+		44AF4A1C208E488E0081B8C6 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				44AF4A21208E792B0081B8C6 /* GroupCell.swift */,
+				44AF4A28208FC6860081B8C6 /* GroupMemberCell.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		44AF4A25208E93860081B8C6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				44AF4A26208E94020081B8C6 /* HourViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		44FA322820814915005D4BED /* Database */ = {
@@ -315,7 +343,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				44FA323520845681005D4BED /* Group.swift in Sources */,
+				44AF4A20208E715D0081B8C6 /* GroupSelectionView.swift in Sources */,
+				44AF4A29208FC6860081B8C6 /* GroupMemberCell.swift in Sources */,
 				44FA3237208457F3005D4BED /* GroupMember.swift in Sources */,
+				44AF4A22208E792B0081B8C6 /* GroupCell.swift in Sources */,
 				44FA323B20850166005D4BED /* EmployeeDA.swift in Sources */,
 				44FA32452088B806005D4BED /* WorkDayDA.swift in Sources */,
 				44FA322F2082EEB0005D4BED /* Employee.swift in Sources */,
@@ -326,6 +357,7 @@
 				44FA32412088B7DC005D4BED /* GroupDA.swift in Sources */,
 				44FA323920846001005D4BED /* WorkDay.swift in Sources */,
 				44FA32432088B7F2005D4BED /* GroupMemberDA.swift in Sources */,
+				44AF4A27208E94020081B8C6 /* HourViewController.swift in Sources */,
 				184024362049C37400B34BEF /* ViewController.swift in Sources */,
 				184024342049C37400B34BEF /* AppDelegate.swift in Sources */,
 				442B2EC0207C025D0012D511 /* PunchIODatabaseHelper.swift in Sources */,

@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class Manager{
+public class Manager : CustomStringConvertible{
     //propreties
     //getter and setter
     private var id: Int
@@ -86,5 +86,18 @@ public class Manager{
             
             self.phone = newPhone
         }
+    }
+    
+    public var description: String{
+        var first: String = "N/A"
+        var last: String = "N/A"
+        if let fName = self._firstName{
+            first = fName
+        }
+        if let lName = self._lastName{
+            last = lName
+        }
+        
+        return ("\(first) \(last)")
     }
 }

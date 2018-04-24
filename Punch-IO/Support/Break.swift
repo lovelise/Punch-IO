@@ -80,10 +80,10 @@ public class Break{
         if self._timeEnd == nil{
             return 0
         }
-        let timeStartDate = self._timeStart!.timeIntervalSince1970.self
+        let timeStartDate = self._timeStart.timeIntervalSince1970.self
         let startTimeInteger  = Int32(timeStartDate)
         
-        let timeEndDate = self._timeEnd!.timeIntervalSince1970.self
+        let timeEndDate = self._timeEnd.timeIntervalSince1970.self
         let endTimeInteger = Int32(timeEndDate)
         return endTimeInteger - startTimeInteger
     }

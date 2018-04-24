@@ -32,7 +32,7 @@ public class GroupMemberDA{
         if sqlite3_prepare_v2(db, groupMemberQuery, -1, &stmt, nil) == SQLITE_OK {
             
             //binding
-            sqlite3_bind_int(stmt, 1, Int32(groupMember._id))
+            sqlite3_bind_int(stmt, 1, Int32(groupMember._group._id))
             sqlite3_bind_int(stmt, 2, Int32(groupMember._employee._id))
 //            let iStatus: Int32 = status_!
             sqlite3_bind_int(stmt, 3, Int32(groupMember._status))
