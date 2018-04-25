@@ -19,7 +19,7 @@ public class WorkDay{
         self.id = id
     }
     
-    init(id: Int, groupMember: GroupMember, timeStart: Date, timeEnd: Date) {
+    init(id: Int, groupMember: GroupMember, timeStart: Date, timeEnd: Date?) {
         self.id = id
         self.groupMember = groupMember
         self.timeStart = timeStart
@@ -80,6 +80,18 @@ public class WorkDay{
             let minutes = (ti / 60) % 60
             let hours = (ti / 3600)
             return NSString(format: "%0.2d:%0.2d:%0.2d",hours,minutes,seconds)
+    }
+    
+    func getFormattedTimeStart() -> String {
+        let df = DateFormatter()
+        df.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        return "\(df.string(from: self._timeStart!))"
+    }
+    
+    func getFormattedTimeEnd() -> String {
+        let df = DateFormatter()
+        df.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        return "\(df.string(from: (self._timeEnd)!))"
     }
     
     

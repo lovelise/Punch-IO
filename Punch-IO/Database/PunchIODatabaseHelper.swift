@@ -99,24 +99,7 @@ internal class PunchIODatabaseHelper{
             print("error creating table: \(errmsg)")
         }
 
-        
-        
-        //call addEmployee func
-
-        
-//        addEmployee(firstName: "John", lastName: "Black", pin: 2345, email: "johnblack@something.ca", phone: "6472059224")
-//        addEmployee(firstName: "Susan", lastName: "White", pin: 1234, email: "susanwhite@something.ca", phone: "6472059245")
-//        addManager(first_name: "Jeff", last_name: "lee", pin: 456, email: "jefflee@somthing.ca", phone: "6475064166")
-//        addManager(first_name: "Nina", last_name: "Ma", pin: 567, email: "ninama@somthing.ca", phone: "6475064166")
-//        addGroup(name: "HR",manager_id: 2)
-//        addGroup(name: "IT Support",manager_id: 1)
-//        addGroupMember(group_id: 1, employee_id: 2, status_: 2)
-//        addGroupMember(group_id: 1, employee_id: 1)
-//        addWorkDay(groupMemberId: 1, timeStart: 2018041108, timeEnd: 2018041115)
-//        addBreak(workDayId: 1, timeStart: 0830, timeEnd: 0900)
-    
-       
-        }
+}
     
     
     deinit {

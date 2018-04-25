@@ -26,7 +26,9 @@ public class WorkDayDA{
         var stmt:OpaquePointer? = nil
         
         //creating a insert query
-        let addWorkDayQuery = "INSERT INTO Work_Day_T(group_member_id,time_start,time_end) VALUES (?,?,?);"
+        //let addWorkDayQuery = "INSERT INTO Work_Day_T(group_member_id,time_start,time_end) VALUES (?,?,?);"
+        let addWorkDayQuery = "INSERT INTO Work_Day_T(group_member_id,time_start) VALUES (?,?);"
+        
         
         //prepare the query
         if sqlite3_prepare_v2(db, addWorkDayQuery, -1, &stmt, nil) == SQLITE_OK {
@@ -36,12 +38,12 @@ public class WorkDayDA{
             let timeStartDate = workDay._timeStart!.timeIntervalSince1970.self
             let startTimeInteger  = Int32(timeStartDate)
             
-            let timeEndDate = workDay._timeEnd!.timeIntervalSince1970.self
-            let endTimeInteger = Int32(timeEndDate)
+            //let timeEndDate = workDay._timeEnd!.timeIntervalSince1970.self
+            //let endTimeInteger = Int32(timeEndDate)
             
             sqlite3_bind_int(stmt, 1, Int32(workDay._groupMember!._id)) //group member id
             sqlite3_bind_int(stmt, 2, startTimeInteger)
-            sqlite3_bind_int(stmt, 3, endTimeInteger)
+            //sqlite3_bind_int(stmt, 3, endTimeInteger)
             
             //excuting the query and verifty it finished
             if sqlite3_step(stmt) == SQLITE_DONE{
@@ -138,7 +140,7 @@ public class WorkDayDA{
     
     func getIncompleteWorkDay(groupMember: GroupMember) -> WorkDay?{
         var stmt: OpaquePointer?
-        let query = "SELECT * FROM Work_Day_T WHERE group_member_id = ? AND time_end = NULL"
+        let query = "SELECT * FROM Work_Day_T WHERE group_member_id = ? AND time_end IS NULL"
         
         if sqlite3_prepare_v2(db, query, -1,&stmt, nil) != SQLITE_OK{
             let errmsg = String(cString: sqlite3_errmsg(db)!)
@@ -168,6 +170,39 @@ public class WorkDayDA{
         }
         sqlite3_finalize(stmt)
         return nil
+    }
+    
+    func updateWorkDayEndTime(workDay: WorkDay) -> Bool{
+        var stmt: OpaquePointer?
+        let query = "UPDATE Work_Day_T SET time_end = ? WHERE work_day_id = ?"
+        
+        if sqlite3_prepare_v2(db, query, -1,&stmt, nil) != SQLITE_OK{
+            let errmsg = String(cString: sqlite3_errmsg(db)!)
+            print("failure binding name: \(errmsg)")
+            return false
+        }
+        
+        //let timeEndDate = workDay._timeEnd!.timeIntervalSince1970.self
+        //let endTimeInteger  = Int32(timeEndDate)
+        
+        if sqlite3_bind_int(stmt, 1, Int32(workDay._timeEnd!.timeIntervalSince1970.self)) != SQLITE_OK{
+            let errmsg = String(cString: sqlite3_errmsg(db)!)
+            print("failure binding id: \(errmsg)")
+            return false
+        }
+        
+        if sqlite3_bind_int(stmt, 2, Int32(workDay._id)) != SQLITE_OK{
+            let errmsg = String(cString: sqlite3_errmsg(db)!)
+            print("failure binding id: \(errmsg)")
+            return false
+        }
+        
+        if(sqlite3_step(stmt) == SQLITE_DONE){
+            return true
+        }
+        
+        //something went wrong
+        return false
     }
 
 

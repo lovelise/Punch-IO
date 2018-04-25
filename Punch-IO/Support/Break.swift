@@ -12,9 +12,9 @@ public class Break{
     private var id: Int
     private var workDay: WorkDay
     private var timeStart: Date
-    private var timeEnd: Date
+    private var timeEnd: Date?
 
-    init(id:Int, workDay: WorkDay, timeStart: Date, timeEnd: Date) {
+    init(id:Int, workDay: WorkDay, timeStart: Date, timeEnd: Date?) {
         self.id = id
         self.workDay = workDay
         self.timeStart = timeStart
@@ -57,9 +57,13 @@ public class Break{
         return timeStart
     }
     
-    public var _timeEnd: Date {
+    public var _timeEnd: Date? {
     get{
-        return self.timeEnd
+        if let endTime = self.timeEnd{
+            return endTime
+        }else{
+            return nil
+        }
     }
     set(newTimeEnd){
         self.timeEnd = newTimeEnd
@@ -68,10 +72,10 @@ public class Break{
     
     //return break end date as an Integer32 representation; includes milliseconds
     func getEndTimeInt32() -> Int32{
-        if(self._timeEnd.timeIntervalSince1970 == 0){
+        if(self._timeEnd!.timeIntervalSince1970 == 0){
             return 0
         }
-        let timeEndInterval = self._timeEnd.timeIntervalSince1970 * 1000
+        let timeEndInterval = self._timeEnd!.timeIntervalSince1970 * 1000
         let timeEnd = Int32(timeEndInterval)
         return timeEnd
     }
@@ -83,7 +87,7 @@ public class Break{
         let timeStartDate = self._timeStart.timeIntervalSince1970.self
         let startTimeInteger  = Int32(timeStartDate)
         
-        let timeEndDate = self._timeEnd.timeIntervalSince1970.self
+        let timeEndDate = self._timeEnd!.timeIntervalSince1970.self
         let endTimeInteger = Int32(timeEndDate)
         return endTimeInteger - startTimeInteger
     }

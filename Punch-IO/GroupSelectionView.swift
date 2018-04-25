@@ -19,6 +19,16 @@ class GroupSelectionView: UIViewController, UITableViewDataSource, UITableViewDe
     var signedInManagers: Manager?
     
     @IBAction func onClickEmployeeSignIn(_ sender: UIButton) {
+        let employeeSignIn = storyboard?.instantiateViewController(withIdentifier: "GroupMemberSignInTableView") as! GroupMemberSelectionTableViewSignInController
+        
+        let indexPath = tableGroups.indexPathForSelectedRow
+        
+        if let index = indexPath?.item {
+            let gmda = GroupMemberDA()
+            let selectedGroupMembers = gmda.getAllGroupMembers(groupId: managerGroups[index]._id)
+            employeeSignIn.groupMembers = selectedGroupMembers
+            //navigationController?.pushViewController(employeeSignIn, animated: true)
+        }
     }
     
     @IBOutlet weak var onClickViewGroup: UIButton! //???
@@ -40,9 +50,7 @@ class GroupSelectionView: UIViewController, UITableViewDataSource, UITableViewDe
         let gmda = GroupMemberDA()
         //put it to string pass it to next page
         if let index = indexPath?.item {
-            print(managerGroups[index]._id)
-            let selectedGroupMembers = gmda.getAllGroupMembers(groupId: managerGroups[0]._id)
-            print(selectedGroupMembers)
+            let selectedGroupMembers = gmda.getAllGroupMembers(groupId: managerGroups[index]._id)
             hourView.selectedGroup = selectedGroupMembers
             hourView.groupName = managerGroups[index]._name
             navigationController?.pushViewController(hourView, animated: true)

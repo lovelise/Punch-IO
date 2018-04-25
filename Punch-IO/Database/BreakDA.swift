@@ -26,7 +26,8 @@ public class BreakDA{
         var stmt:OpaquePointer? = nil
         
         //creating a insert query
-        let addBreakQuery = "INSERT INTO Break_T(work_day_id, time_start, time_end) VALUES (?,?,?);"
+        //let addBreakQuery = "INSERT INTO Break_T(work_day_id, time_start, time_end) VALUES (?,?,?);"
+        let addBreakQuery = "INSERT INTO Break_T(work_day_id, time_start) VALUES (?,?);"
         
         //prepare the query
         if sqlite3_prepare_v2(db, addBreakQuery, -1, &stmt, nil) == SQLITE_OK {
@@ -45,11 +46,11 @@ public class BreakDA{
                 print("failure binding name: \(errmsg)")
                 return
             }
-            if sqlite3_bind_int(stmt, 3, workBreak.getEndTimeInt32()) != SQLITE_OK {
-                let errmsg = String(cString: sqlite3_errmsg(db)!)
-                print("failure binding name: \(errmsg)")
-                return
-            }
+//            if sqlite3_bind_int(stmt, 3, workBreak.getEndTimeInt32()) != SQLITE_OK {
+//                let errmsg = String(cString: sqlite3_errmsg(db)!)
+//                print("failure binding name: \(errmsg)")
+//                return
+//            }
             
             
             //excuting the query and verifty it finished
@@ -107,7 +108,7 @@ public class BreakDA{
     
     func getIncompleteBreak(workday: WorkDay) -> Break?{
         var stmt: OpaquePointer?
-        let query = "SELECT * FROM Break_T WHERE work_day_id = ? AND time_end = NULL"
+        let query = "SELECT * FROM Break_T WHERE work_day_id = ? AND time_end IS NULL"
         
         if sqlite3_prepare_v2(db, query, -1,&stmt, nil) != SQLITE_OK{
             let errmsg = String(cString: sqlite3_errmsg(db)!)
