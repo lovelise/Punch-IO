@@ -19,10 +19,12 @@ class GroupMemberSelectionTableViewSignInController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print(groupMembers)
         //load data
         
         //dummy data
-
+        /*
         EmployeeDA().addEmployee(employee: Employee(id: 1, firstName: "Brendan", lastName: "Bernas", pin: 1234, email: "bb@gbc.com", phone: "1231231234"))
         EmployeeDA().addEmployee(employee: Employee(id: 2, firstName: "Piotr", lastName: "Grabowski", pin: 1234, email: "pg@gbc.com", phone: "1231231234"))
         ManagerDA().addManager(manager: Manager(id: 1, firstName: "Anjana", lastName: "Shah", pin: 1234, email: "ashah@georgebrown.ca", phone: "1231231234"))
@@ -30,7 +32,7 @@ class GroupMemberSelectionTableViewSignInController: UITableViewController {
         GroupDA().addGroup(group: grp)
         GroupMemberDA().addGroupMember(groupMember: GroupMember(id: 1, group: grp, employee: EmployeeDA().getEmployee(id: 1)!))
          GroupMemberDA().addGroupMember(groupMember: GroupMember(id: 1, group: grp, employee: EmployeeDA().getEmployee(id: 2)!))
-        
+        */
         /*
         groupMemberNames = ["Brendan Bernas",
                         "Piotr Grabowski",
@@ -79,17 +81,15 @@ class GroupMemberSelectionTableViewSignInController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "groupMemberSelectCell", for: indexPath)
         // Configure the cell...
         cell.textLabel?.text = groupMembers[indexPath.row]._employee._firstName! + " " + groupMembers[indexPath.row]._employee._lastName!
-        
-
         //set value to id of groupMember
         //cell.setValue(1, forKeyPath: "groupMemberId")
         
         return cell
     }
+    
     
 
     /*

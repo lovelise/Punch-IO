@@ -26,7 +26,7 @@ internal class PunchIODatabaseHelper{
         
         path = fileURL.absoluteString
         
-        print(fileURL.absoluteString)
+        //print(fileURL.absoluteString)
         
         //OPENING THE DATABASE
         if sqlite3_open(fileURL.path, &db) != SQLITE_OK{

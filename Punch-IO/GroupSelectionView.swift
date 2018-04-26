@@ -19,14 +19,19 @@ class GroupSelectionView: UIViewController, UITableViewDataSource, UITableViewDe
     var signedInManagers: Manager?
     
     @IBAction func onClickEmployeeSignIn(_ sender: UIButton) {
-        let employeeSignIn = storyboard?.instantiateViewController(withIdentifier: "GroupMemberSignInTableView") as! GroupMemberSelectionTableViewSignInController
+        //let employeeSignIn = storyboard?.instantiateViewController(withIdentifier: "GroupMemberSignInTableView") as! GroupMemberSelectionTableViewSignInController
+        
+        let employeeSignInPage = storyboard?.instantiateViewController(withIdentifier: "GroupMemberSignInTableView") as! GroupMemberSelectionTableViewSignInController
         
         let indexPath = tableGroups.indexPathForSelectedRow
         
         if let index = indexPath?.item {
             let gmda = GroupMemberDA()
             let selectedGroupMembers = gmda.getAllGroupMembers(groupId: managerGroups[index]._id)
-            employeeSignIn.groupMembers = selectedGroupMembers
+            employeeSignInPage.groupMembers = selectedGroupMembers
+            print(selectedGroupMembers)
+            print(employeeSignInPage.groupMembers)
+            //self.performSegue(withIdentifier: "employeeSignIn", sender: self)
             //navigationController?.pushViewController(employeeSignIn, animated: true)
         }
     }
@@ -84,6 +89,25 @@ class GroupSelectionView: UIViewController, UITableViewDataSource, UITableViewDe
         let cell = UITableViewCell()
         cell.textLabel?.text = "\(managerGroups[indexPath.row]._name)"
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "employeeSignIn" {
+        
+            /*
+            let employeeSignInPage = storyboard?.instantiateViewController(withIdentifier: "GroupMemberSignInTableView") as! GroupMemberSelectionTableViewSignInController
+            let gmda = GroupMemberDA()
+            let indexPath = tableGroups.indexPathForSelectedRow!
+            let row = indexPath.item
+            employeeSignInPage.groupMembers = gmda.getAllGroupMembers(groupId: row)
+            */
+            
+            
+            let c = segue.destination as! GroupMemberSelectionTableViewSignInController
+            c.groupMembers = GroupMemberDA().getAllGroupMembers(groupId: (tableGroups.indexPathForSelectedRow?.row)!)
+        }
+        
+        
     }
     
     //didselectedrow

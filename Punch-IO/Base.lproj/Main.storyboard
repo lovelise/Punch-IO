@@ -26,6 +26,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="QWv-LV-Xoq" kind="showDetail" id="nat-HF-xh1"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -34,9 +37,6 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Root View Controller" id="c9f-7s-oIC"/>
-                    <connections>
-                        <segue destination="QWv-LV-Xoq" kind="showDetail" id="cqi-Ms-mOF"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RrT-ZX-2bx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -51,7 +51,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="bhb-d4-Cfn" kind="relationship" relationship="rootViewController" id="fpq-ZO-Y8X"/>
+                        <segue destination="bhb-d4-Cfn" kind="relationship" relationship="rootViewController" id="upf-Zl-mBI"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ImI-XT-zdn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -98,7 +98,7 @@
                                 </state>
                                 <connections>
                                     <action selector="onClickEmployeeSignIn:" destination="S7I-ZN-K6r" eventType="touchUpInside" id="43I-Tc-L3g"/>
-                                    <segue destination="D8B-p7-uVD" kind="presentation" id="y3S-ig-HFF"/>
+                                    <segue destination="D8B-p7-uVD" kind="presentation" identifier="employeeSignIn" id="xX1-3P-aTU"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mDn-Ua-Wmk">
@@ -419,6 +419,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="cqi-Ms-mOF"/>
+        <segue reference="nat-HF-xh1"/>
     </inferredMetricsTieBreakers>
 </document>
