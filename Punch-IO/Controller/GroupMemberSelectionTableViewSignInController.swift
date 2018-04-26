@@ -20,6 +20,8 @@ class GroupMemberSelectionTableViewSignInController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print(selectedGroup)
+        groupMembers = GroupMemberDA().getAllGroupMembers(groupId: selectedGroup)
         print(groupMembers)
         //load data
         
@@ -81,7 +83,7 @@ class GroupMemberSelectionTableViewSignInController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "groupMemberSelectCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
         // Configure the cell...
         cell.textLabel?.text = groupMembers[indexPath.row]._employee._firstName! + " " + groupMembers[indexPath.row]._employee._lastName!
         //set value to id of groupMember

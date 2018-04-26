@@ -14,12 +14,12 @@
         <scene sceneID="MTP-YH-p2b">
             <objects>
                 <tableViewController storyboardIdentifier="GroupMemberSignInTableView" id="bhb-d4-Cfn" customClass="GroupMemberSelectionTableViewSignInController" customModule="Punch_IO" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="reuseIdentifier" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="tRm-hs-5TZ">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="tRm-hs-5TZ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="reuseIdentifier" id="oHW-Ux-Ecw">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="oHW-Ux-Ecw">
                                 <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oHW-Ux-Ecw" id="SdL-Aw-8ep">
@@ -98,7 +98,7 @@
                                 </state>
                                 <connections>
                                     <action selector="onClickEmployeeSignIn:" destination="S7I-ZN-K6r" eventType="touchUpInside" id="43I-Tc-L3g"/>
-                                    <segue destination="D8B-p7-uVD" kind="presentation" id="H7Q-6L-J86"/>
+                                    <segue destination="D8B-p7-uVD" kind="presentation" identifier="employeeSignIn" id="xX1-3P-aTU"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mDn-Ua-Wmk">
@@ -316,10 +316,10 @@
             </objects>
             <point key="canvasLocation" x="-365" y="-1775"/>
         </scene>
-        <!--Split View Controller-->
+        <!--Group Sign In Split View Controller-->
         <scene sceneID="jQz-HR-utG">
             <objects>
-                <splitViewController id="D8B-p7-uVD" sceneMemberID="viewController">
+                <splitViewController storyboardIdentifier="splitViewController" id="D8B-p7-uVD" customClass="GroupSignInSplitViewController" customModule="Punch_IO" customModuleProvider="target" sceneMemberID="viewController">
                     <connections>
                         <segue destination="KEB-xW-VNd" kind="relationship" relationship="masterViewController" id="rln-hg-nr0"/>
                         <segue destination="QWv-LV-Xoq" kind="relationship" relationship="detailViewController" id="LGU-2U-KSV"/>
@@ -419,6 +419,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="nat-HF-xh1"/>
+        <segue reference="LGU-2U-KSV"/>
     </inferredMetricsTieBreakers>
 </document>

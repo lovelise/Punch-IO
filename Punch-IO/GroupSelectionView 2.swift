@@ -8,8 +8,6 @@
 
 import UIKit
 
-var selectedGroup = 0
-
 class GroupSelectionView: UIViewController, UITableViewDataSource, UITableViewDelegate{
 
     var managerGroups: [Group] = [Group]()
@@ -24,6 +22,8 @@ class GroupSelectionView: UIViewController, UITableViewDataSource, UITableViewDe
         //let employeeSignIn = storyboard?.instantiateViewController(withIdentifier: "GroupMemberSignInTableView") as! GroupMemberSelectionTableViewSignInController
         
         let employeeSignInPage = storyboard?.instantiateViewController(withIdentifier: "GroupMemberSignInTableView") as! GroupMemberSelectionTableViewSignInController
+        
+        print(employeeSignInPage)
         
         let indexPath = tableGroups.indexPathForSelectedRow
         
@@ -93,25 +93,20 @@ class GroupSelectionView: UIViewController, UITableViewDataSource, UITableViewDe
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedGroup = indexPath.row + 1
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "employeeSignIn" {
         
             
-            let employeeSignInPage = storyboard?.instantiateViewController(withIdentifier: "GroupMemberSignInTableView") as! GroupMemberSelectionTableViewSignInController
+            //let employeeSignInPage = storyboard?.instantiateViewController(withIdentifier: "GroupMemberSignInTableView") as! GroupMemberSelectionTableViewSignInController
+            //let employeeSignInPage = storyboard?.instantiateViewController(withIdentifier: "splitViewController") as! GroupSignInSplitViewController
             let gmda = GroupMemberDA()
             let indexPath = tableGroups.indexPathForSelectedRow!
             let row = indexPath.item
-            employeeSignInPage.groupMembers = gmda.getAllGroupMembers(groupId: row)
  
             
-            /*
-            let c = segue.destination as! GroupMemberSelectionTableViewSignInController
+            
+            let c = segue.destination as! GroupSignInSplitViewController
             c.groupMembers = GroupMemberDA().getAllGroupMembers(groupId: (tableGroups.indexPathForSelectedRow?.row)!)
-             */
         }
         
         
