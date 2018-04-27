@@ -43,6 +43,20 @@ class HourViewController: UIViewController{
         // Dispose of any resources that can be recreated.
     }
     
+    func getFormattedDateMedium(date: Date) -> String{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .none
+        dateFormatter.locale = Locale(identifier: "en_US")
+        return (dateFormatter.string(from: date))
+    }
+    func getFormattedDateTime(date: Date) -> String{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .none
+        dateFormatter.timeStyle = .medium
+        dateFormatter.locale = Locale(identifier: "en_US")
+        return (dateFormatter.string(from: date))
+    }
 
     /*
     // MARK: - Navigation
