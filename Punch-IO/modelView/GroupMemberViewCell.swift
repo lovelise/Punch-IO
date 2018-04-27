@@ -3,8 +3,7 @@ class GroupMemberViewCell: UITableViewCell {
    
    var item: GroupMemberViewModelItem? {
       didSet {
-         // cast the ProfileViewModelItem to appropriate item type
-         guard let item = item as? GroupMemberViewModelItem  else {
+         guard let item = item as? GroupMemberViewModelEmployee  else {
             return
          }
          labelGroupMember.text = item.name
