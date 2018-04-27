@@ -63,7 +63,7 @@
             <objects>
                 <viewController storyboardIdentifier="GroupSelectionView" id="S7I-ZN-K6r" customClass="GroupSelectionView" customModule="Punch_IO" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VJ7-d9-9zX">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="703.5" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MANAGER NAME" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tcb-1j-uIv">
@@ -119,6 +119,7 @@
                         <viewLayoutGuide key="safeArea" id="e8q-BB-AE5"/>
                     </view>
                     <connections>
+                        <outlet property="btnEmployeeSignIn" destination="7lb-em-nl8" id="ORY-tN-Y8q"/>
                         <outlet property="btnViewGroup" destination="mDn-Ua-Wmk" id="B9N-mH-8lO"/>
                         <outlet property="labelManagerName" destination="Tcb-1j-uIv" id="8NV-le-UMl"/>
                         <outlet property="onClickViewGroup" destination="mDn-Ua-Wmk" id="tja-yc-RoX"/>
@@ -134,7 +135,7 @@
             <objects>
                 <viewController storyboardIdentifier="hourView" id="Gf3-hW-UIx" customClass="HourViewController" customModule="Punch_IO" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="D26-lG-PVt">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="703.5" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qhw-hW-dge">
@@ -414,9 +415,10 @@
                         <viewLayoutGuide key="safeArea" id="00K-1d-auV"/>
                     </view>
                     <connections>
+                        <outlet property="btnBack" destination="MRq-AM-I1p" id="C7i-E8-yQb"/>
                         <outlet property="btnBreakIn" destination="ac3-He-ckl" id="SRE-y6-lhZ"/>
                         <outlet property="btnBreakOut" destination="NLc-aA-A5Z" id="17D-nN-JSM"/>
-                        <outlet property="btnPunchIn" destination="pgx-7q-mx3" id="oty-Bz-RAU"/>
+                        <outlet property="btnPunchIn" destination="MRq-AM-I1p" id="t0w-F4-4Cr"/>
                         <outlet property="btnPunchOut" destination="lHf-zE-smB" id="lIC-2T-6J2"/>
                         <outlet property="lblDescription" destination="y3o-wm-VeX" id="AQC-oa-BbX"/>
                         <outlet property="lblEmployeeName" destination="Rii-5M-AFV" id="u85-3c-WT9"/>
@@ -430,7 +432,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="YQ6-XF-opv"/>
+        <segue reference="H7Q-6L-J86"/>
         <segue reference="nat-HF-xh1"/>
     </inferredMetricsTieBreakers>
 </document>

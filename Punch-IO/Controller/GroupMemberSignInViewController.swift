@@ -15,6 +15,7 @@ class GroupMemberSignInViewController: UIViewController {
     @IBOutlet weak var lblTimer: UILabel!
     @IBOutlet weak var lblWorkInfo: UILabel!
     //@IBOutlet weak var lblWorkInfo: UILabel!
+    @IBOutlet weak var btnBack: UIButton!
     @IBOutlet weak var btnPunchIn: UIButton!
     @IBOutlet weak var btnPunchOut: UIButton!
     @IBOutlet weak var btnBreakIn: UIButton!
@@ -112,6 +113,7 @@ class GroupMemberSignInViewController: UIViewController {
     }
     
     func prepForInfo(){
+        btnBack.isEnabled = false
         btnPunchIn.isEnabled = false
         btnPunchOut.isEnabled = false
         btnBreakIn.isEnabled = false
@@ -121,6 +123,7 @@ class GroupMemberSignInViewController: UIViewController {
     }
     
     func prepForNewWorkDay(){
+        btnBack.isEnabled = true
         btnPunchIn.isEnabled = true
         btnPunchOut.isEnabled = false
         btnBreakIn.isEnabled = false
@@ -139,6 +142,7 @@ class GroupMemberSignInViewController: UIViewController {
     
     func prepForWorkDayInProgress(){
         loadType = .WorkDayInProgress
+        btnBack.isEnabled = true
         btnPunchIn.isEnabled = false
         btnPunchOut.isEnabled = true
         btnBreakIn.isEnabled = true
@@ -198,7 +202,6 @@ class GroupMemberSignInViewController: UIViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print(selectedGroup)
         let groupSelection = segue.destination as! GroupSelectionView
         //let selectedManagerIndex = GroupDA().getAllGroups()[selectedGroup]._manager._id
         let selectedManagerIndex = GroupMemberDA().getGroupMember(groupMemberId: (groupMember?._id)!)?._group._manager._id

@@ -76,6 +76,8 @@ class GroupSelectionView: UIViewController, UITableViewDataSource, UITableViewDe
         let fName = signedInManagers!._firstName!
         let lName = signedInManagers!._lastName!
         labelManagerName.text = "Welcome, \(fName) \(lName)"
+        btnViewGroup.isEnabled = false
+        btnEmployeeSignIn.isEnabled = false
         // Do any additional setup after loading the view.
     }
 
@@ -97,6 +99,8 @@ class GroupSelectionView: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedGroup = indexPath.row + 1
+        btnViewGroup.isEnabled = true
+        btnEmployeeSignIn.isEnabled = true
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

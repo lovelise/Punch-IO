@@ -106,7 +106,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Punch-IO/ViewController.swift"
-            timestampString = "546548383.443598"
+            timestampString = "546550385.083919"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "34"
@@ -154,11 +154,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Punch-IO/Controller/GroupMemberSignInViewController.swift"
-            timestampString = "546548383.443776"
+            timestampString = "546550385.084213"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "203"
-            endingLineNumber = "203"
+            startingLineNumber = "206"
+            endingLineNumber = "206"
             landmarkName = "prepare(for:sender:)"
             landmarkType = "7">
          </BreakpointContent>
