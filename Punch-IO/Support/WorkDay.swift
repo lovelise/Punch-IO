@@ -71,6 +71,8 @@ public class WorkDay{
         
         let timeEndDate = self._timeEnd!.timeIntervalSince1970.self
         let endTimeInteger = Int32(timeEndDate)
+        print("timeStart Interval \(startTimeInteger)")
+        print("timeEnd Interval \(endTimeInteger)")
         return endTimeInteger - startTimeInteger
     }
     

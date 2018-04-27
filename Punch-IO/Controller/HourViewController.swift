@@ -21,12 +21,14 @@ class HourViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         lblGroupTitle.text = "Work Hours For \(groupName.capitalized)"
-        lblTextView.text = "Group Hours for \(groupName) are displayed below: \n"
+        lblTextView.text = "Group Hours for \(groupName) are displayed below: \n\n"
         for groupMember in selectedGroup!{
             lblTextView.text.append("\(groupMember._employee._firstName!) \(groupMember._employee._lastName!) \nWorkdays:\n")
             let wda = WorkDayDA()
             for workday in wda.getGroupMemberWorkdays(groupMemberId: groupMember._id){
-                lblTextView.text.append("TIME START: \(workday._timeStart!) \t\t TIME END \(workday._timeEnd!) \t Total time:\(workday.getFormattedLength())")
+                let dateInterval = workday.getTimeLength()
+                print(dateInterval)
+                lblTextView.text.append("TIME START: \(getFormattedDateTime(date: workday._timeStart!)) \t\t TIME END: \(getFormattedDateTime(date: workday._timeEnd!)) \t\t Total time:\(String(workday.getFormattedLength())) \n\n")
                 /*
                 for workBreak in bda.getWorkdayBreaks(workDayId: workday._id){
                     lblTextView.text.append("TIME START: \(workBreak._timeStart) \t\t TIME END \(workBreak._timeEnd) \t \(workBreak.getFormattedLength())")

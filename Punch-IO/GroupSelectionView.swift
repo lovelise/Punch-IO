@@ -44,24 +44,26 @@ class GroupSelectionView: UIViewController, UITableViewDataSource, UITableViewDe
         //passing the group name to view employee hours
         //get the group name from Table view
         //Initi
-        let hourView = storyboard?.instantiateViewController(withIdentifier: "hourView") as! HourViewController
+//        let hourView = storyboard?.instantiateViewController(withIdentifier: "hourView") as! HourViewController
+//
+//        //1.get the selected row
+//        let indexPath = tableGroups.indexPathForSelectedRow
+//        let currentCell = tableGroups.cellForRow(at: indexPath!) as! UITableViewCell
+//
+//        let groupName = currentCell.textLabel?.text
+//
+//        let gda = GroupDA()
+//        //let gdaId = gda.getManagersGroups(managerId: signedInManagers!._id)
+//        let gmda = GroupMemberDA()
+//        //put it to string pass it to next page
+//        if let index = indexPath?.item {
+//            let selectedGroupMembers = gmda.getAllGroupMembers(groupId: managerGroups[index]._id)
+//            hourView.selectedGroup = selectedGroupMembers
+//            hourView.groupName = managerGroups[index]._name
+//            navigationController?.pushViewController(hourView, animated: true)
+//        }
         
-        //1.get the selected row
-        let indexPath = tableGroups.indexPathForSelectedRow
-        let currentCell = tableGroups.cellForRow(at: indexPath!) as! UITableViewCell
-        
-        let groupName = currentCell.textLabel?.text
-        
-        let gda = GroupDA()
-        //let gdaId = gda.getManagersGroups(managerId: signedInManagers!._id)
-        let gmda = GroupMemberDA()
-        //put it to string pass it to next page
-        if let index = indexPath?.item {
-            let selectedGroupMembers = gmda.getAllGroupMembers(groupId: managerGroups[index]._id)
-            hourView.selectedGroup = selectedGroupMembers
-            hourView.groupName = managerGroups[index]._name
-            navigationController?.pushViewController(hourView, animated: true)
-        }
+        //self.performSegue(withIdentifier: "viewHours", sender: self)
   
     
         
@@ -112,6 +114,21 @@ class GroupSelectionView: UIViewController, UITableViewDataSource, UITableViewDe
             let c = segue.destination as! GroupMemberSelectionTableViewSignInController
             c.groupMembers = GroupMemberDA().getAllGroupMembers(groupId: (tableGroups.indexPathForSelectedRow?.row)!)
              */
+        }
+        
+        if segue.identifier == "viewHours" {
+            let viewHours = segue.destination as! HourViewController
+            //let viewHours = storyboard?.instantiateViewController(withIdentifier: "hourView") as! HourViewController
+            let indexPath = tableGroups.indexPathForSelectedRow
+            let currentCell = tableGroups.cellForRow(at: indexPath!) as! UITableViewCell
+            let groupName = currentCell.textLabel?.text
+            let gda = GroupDA()
+            let gmda = GroupMemberDA()
+            if let index = indexPath?.item {
+                let selectedGroupMembers = gmda.getAllGroupMembers(groupId: managerGroups[index]._id)
+                viewHours.selectedGroup = selectedGroupMembers
+                viewHours.groupName = managerGroups[index]._name
+            }
         }
         
         

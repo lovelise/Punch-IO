@@ -65,9 +65,9 @@ public class GroupDA{
             return [Group]()
         }
         while(sqlite3_step(stmt) == SQLITE_ROW){
-            let id = sqlite3_column_int(stmt, 0)
+            let id = Int(sqlite3_column_int(stmt, 0))
             let name = String(cString: sqlite3_column_text(stmt, 1))
-            let manager_id = sqlite3_column_int(stmt, 2)
+            let manager_id = Int(sqlite3_column_int(stmt, 2))
             let tempManager: Manager = Manager(id:Int(manager_id))
             
             let intId = Int(id)

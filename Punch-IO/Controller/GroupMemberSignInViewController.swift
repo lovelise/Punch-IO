@@ -19,6 +19,11 @@ class GroupMemberSignInViewController: UIViewController {
     @IBOutlet weak var btnPunchOut: UIButton!
     @IBOutlet weak var btnBreakIn: UIButton!
     @IBOutlet weak var btnBreakOut: UIButton!
+    @IBAction func onClickBack(_ sender: Any) {
+//        let groupSelection = storyboard?.instantiateViewController(withIdentifier: "GroupSelectionView") as! GroupSelectionView
+//        groupSelection.signedInManagers = Manager(id: 1)
+//        navigationController?.pushViewController(groupSelection, animated: true)
+    }
     
     var groupMember: GroupMember? = nil
     var workDay: WorkDay? = nil
@@ -189,15 +194,17 @@ class GroupMemberSignInViewController: UIViewController {
     }
     
     
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        print(selectedGroup)
+        let groupSelection = segue.destination as! GroupSelectionView
+        //let selectedManagerIndex = GroupDA().getAllGroups()[selectedGroup]._manager._id
+        let selectedManagerIndex = GroupMemberDA().getGroupMember(groupMemberId: (groupMember?._id)!)?._group._manager._id
+        groupSelection.signedInManagers = ManagerDA().getManager(id: selectedManagerIndex!)
+        groupSelection.managerGroups = GroupDA().getManagersGroups(managerId: selectedManagerIndex!)
     }
-    */
 
 }
 
